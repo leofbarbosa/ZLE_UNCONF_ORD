@@ -1,0 +1,72 @@
+{
+    "resources": [
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "annotations/annotations.xml"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "ext/controller/ListReportExt-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "ext/controller/ListReportExt.controller.js"
+        },
+        {
+            "name": "ext/controller/SourcingLogic-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "ext/controller/SourcingLogic.controller.js"
+        },
+        {
+            "name": "ext/view/GeneralInfo.fragment.xml"
+        },
+        {
+            "name": "ext/view/SourcingLogic.view.xml"
+        },
+        {
+            "name": "i18n/ListReport/ZC_SD_UNCONFITEM/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/ObjectPage/ZC_SD_UNCONFITEM/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "sap-ui-cachebuster-info.json"
+        },
+        {
+            "name": "util/formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/formatter.js"
+        }
+    ]
+}

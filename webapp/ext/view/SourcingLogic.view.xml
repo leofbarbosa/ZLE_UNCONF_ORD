@@ -1,0 +1,78 @@
+<core:View xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m"
+	controllerName="com.touchette.unconfirmedorders.ext.controller.SourcingLogic">
+	<smartTable:SmartTable id="idSourcLogicSmartTable" header="{i18n>@Result}" entitySet="SourcingSet" tableBindingPath="sourcing>Sourcings" editable="true"
+		useTablePersonalisation="false" showTablePersonalisation="false" useVariantManagement="false" showRowCount="false" enableAutoBinding="true"
+		noData="{i18n>@NoItem}" class="sapUiResponsiveContentPadding" persistencyKey="PartTablePKey" useExportToExcel="false"
+		requestAtLeastFields="Plant,Material,TargetQty,ShuttleFlag,ShippingFees,DeliveryTimestamp,ServiceLevel">
+		<Table id="idSourcLogicTable" inset="true">
+			<headerToolbar>
+				<Toolbar>
+					<Button type="Default" icon="sap-icon://check-availability" text="Check Availability" press="onNavToCheckAvail">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<Button type="Default" icon="sap-icon://sales-order-item" text="Diff Price Release" press="onNavToDiffPriceRelease">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<Button type="Default" icon="sap-icon://sales-order" text="Change Order" press="onNavToDisplayOrder">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<ToolbarSpacer/>
+					<Button type="Default" icon="sap-icon://refresh" text="Refresh" press="onSourcLogicRefresh">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+					<Button type="Default" icon="sap-icon://save" text="Save" press="onSourcLogicSave">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Button>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="10%">
+					<Text text="Plant"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" width="20%">
+					<Text text="Material"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End" width="15%">
+					<Text text="Confirmed Quantity"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="10%">
+					<Text text="Shuttle?"/>
+				</Column>
+				<Column hAlign="End" width="10%">
+					<Text text="Shipping Fees"/>
+				</Column>
+				<Column hAlign="Center" width="15%">
+					<Text text="Delivery Date"/>
+				</Column>
+				<Column hAlign="End" width="10%">
+					<Text text="Service Level"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{sourcing>Plant}"/>
+						<Text text="{sourcing>Material}"/>
+						<Text text="{sourcing>TargetQty}"/>
+						<Text text="{sourcing>ShuttleFlag}"/>
+						<Text text="{sourcing>ShippingFees}"/>
+						<Text text="{path: 'sourcing>DeliveryTimestamp', formatter: '.formatter.dateValue'}"/>
+						<Text text="{sourcing>ServiceLevel}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</smartTable:SmartTable>
+</core:View>
