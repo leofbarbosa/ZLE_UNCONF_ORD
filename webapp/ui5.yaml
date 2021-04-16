@@ -1,0 +1,26 @@
+specVersion: "1.0"
+metadata:
+  name: com.touchette.unconfirmedorders
+type: application
+ui5Theme: sap_fiori_3
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://tch-s4hds1.grtouchette.com:8000
+            destination: http://tch-s4hds1.grtouchette.com:8000, client 100
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: ""
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp

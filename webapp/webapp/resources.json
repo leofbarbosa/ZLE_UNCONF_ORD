@@ -1,0 +1,91 @@
+{
+    "resources": [
+        {
+            "name": "ext/view/GeneralInfo.fragment.xml"
+        },
+        {
+            "name": "ext/view/SourcingLogic.view.xml"
+        },
+        {
+            "name": "ext/controller/ListReportExt.controller.js"
+        },
+        {
+            "name": "ext/controller/ListReportExt-dbg.controller.js"
+        },
+        {
+            "name": "ext/controller/SourcingLogic-dbg.controller.js"
+        },
+        {
+            "name": "ext/controller/SourcingLogic.controller.js"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "Component-dbg.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "util/formatter.js"
+        },
+        {
+            "name": "util/formatter-dbg.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "annotations/annotations.xml"
+        },
+        {
+            "name": "i18n/i18n_en.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/ListReport/ZC_SD_UNCONFITEM/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/ListReport/ZC_SD_UNCONFITEM/i18n_fr.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/ObjectPage/ZC_SD_UNCONFITEM/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/ObjectPage/ZC_SD_UNCONFITEM/i18n_fr.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n_fr.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        }
+    ]
+}

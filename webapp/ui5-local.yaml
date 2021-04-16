@@ -1,0 +1,32 @@
+specVersion: "2.0"
+metadata:
+  name: com.touchette.unconfirmedorders
+type: application
+framework:
+  name: SAPUI5
+  version: 1.88.1
+  libraries:
+    - name: sap.m
+    - name: sap.ushell
+    - name: sap.ui.core
+    - name: sap.f
+    - name: sap.ui.comp
+    - name: sap.ui.table
+    - name: sap.suite.ui.generic.template
+    - name: sap.ui.generic.app
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://tch-s4hds1.grtouchette.com:8000
+            destination: http://tch-s4hds1.grtouchette.com:8000, client 100
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
