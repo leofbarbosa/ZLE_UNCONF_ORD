@@ -35,71 +35,201 @@
 			<!--===============================================================================
                 Entity Type from chosen collection 
                 ================================================================================-->
+            <Annotations Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/BlockStatus">
+            	<Annotation Term="Common.Label" String="{@i18n>@BlockST}"/>
+            </Annotations>
+            <Annotations Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/DeliveryTimestamp">
+            	<Annotation Term="Common.Label" String="{@i18n>@DeliveryDT}"/>
+            </Annotations>
+            <Annotations Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/CreationTimestamp">
+            	<Annotation Term="Common.Label" String="{@i18n>@CreationDT}"/>
+            </Annotations>
 			<Annotations Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType">
 				<Annotation Term="UI.LineItem">
+					<Annotation Term="UI.Criticality" Path="Critical"/>
 					<Collection>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="OrderNumber"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Sales Document"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@SalesDocument}"/>
 							<PropertyValue Property="Value" Path="OrderNumber"/>
+							<PropertyValue Property="MaxLength" Value="10"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Sales Doc Type"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@Item}"/>
+							<PropertyValue Property="Value" Path="OrderItem"/>
+							<PropertyValue Property="MaxLength" Value="6"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SalesDocType}"/>
 							<PropertyValue Property="Value" Path="OrderType"/>
+							<PropertyValue Property="MaxLength" Value="10"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Name"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@Name}"/>
 							<PropertyValue Property="Value" Path="ShipToName"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
+<!-- BEGIN - LEONARDO BARBOSA - 2020-11-09 -->
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Block Status"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@EmployeeResponsible}"/>
+							<PropertyValue Property="Value" Path="Employee"/>
+							<PropertyValue Property="MaxLength" Value="20"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record> 
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@Comments}"/>
+							<PropertyValue Property="Value" Path="Comments"/>
+							<PropertyValue Property="MaxLength" Value="30"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record> 
+<!-- END - LEONARDO BARBOSA - 2020-11-09 -->
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@BlockST}"/>-
 							<PropertyValue Property="Criticality" Path="Critical"/>
 							<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
 							<PropertyValue Property="Value" Path="BlockStatus"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Item"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@Item}"/>
 							<PropertyValue Property="Value" Path="OrderItem"/>
+							<PropertyValue Property="MaxLength" Value="5"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Material"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@Material}"/>
 							<PropertyValue Property="Value" Path="Material"/>
+							<PropertyValue Property="MaxLength" Value="10"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Order Qty"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@OrderQty}"/>
 							<PropertyValue Property="Value" Path="OrderQty"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Confirmed Qty"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@ConfirmedQty}"/>
 							<PropertyValue Property="Value" Path="ConfirmedQty"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="UoM"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@UoM}"/>
 							<PropertyValue Property="Value" Path="OrderUoM"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Plant"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@Plant}"/>
 							<PropertyValue Property="Value" Path="Plant"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Delivery Date&amp;Time"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@DeliveryDT}"/>
 							<PropertyValue Property="Value" Path="DeliveryTimestamp"/>
+							<PropertyValue Property="MaxLength" Value="10"/>
 							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
 						</Record>
+					    	<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@Critical}"/>
+							<PropertyValue Property="Value" Path="Critical"/>
+							<PropertyValue Property="MaxLength" Value="10"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@CreationDT}"/>
+							<PropertyValue Property="Value" Path="CreationTimestamp"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@CustomerReference}"/>
+							<PropertyValue Property="Value" Path="CustomerReference"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@DeliveryBlock}"/>
+							<PropertyValue Property="Value" Path="DeliveryBlock"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@DeliveryPriority}"/>
+							<PropertyValue Property="Value" Path="DeliveryPriority"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@InventoryVisibility}"/>
+							<PropertyValue Property="Value" Path="InventoryVisibility"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@kunnr}"/>
+							<PropertyValue Property="Value" Path="kunnr"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@PONumber}"/>
+							<PropertyValue Property="Value" Path="PONumber"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@Route}"/>
+							<PropertyValue Property="Value" Path="Route"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SalesOffice}"/>
+							<PropertyValue Property="Value" Path="SalesOffice"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SchedLine}"/>
+							<PropertyValue Property="Value" Path="SchedLine"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@ShipToNumber}"/>
+							<PropertyValue Property="Value" Path="ShipToNumber"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@ShipToName}"/>
+							<PropertyValue Property="Value" Path="ShipToName"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@ShipToRegion}"/>
+							<PropertyValue Property="Value" Path="ShipToRegion"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SoldTo}"/>
+							<PropertyValue Property="Value" Path="SoldToNumber"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@StorageLocation}"/>
+							<PropertyValue Property="Value" Path="StorageLocation"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SalesGroup}"/>
+							<PropertyValue Property="Value" Path="SalesGroup"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<!-- <Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@ADDQty}"/>
+							<PropertyValue Property="Value" Path="ADDQuantity"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n&gt;@AFSQty}"/>
+							<PropertyValue Property="Value" Path="AFSQuantity"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record> -->
 					</Collection>
-					<Annotation Term="UI.Criticality" Path="Critical"/>
 				</Annotation>
 				<!--<Annotation Term="UI.LineItem">-->
 				<!--	<Collection/>-->
@@ -123,10 +253,30 @@
 				</Annotation>
 			</Annotations>
 			<!-- search helpers -->
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/BlockStatus">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="Label" String="{@i18n&gt;@BlockST}"/>
+						<PropertyValue Property="CollectionPath" String="ZC_SD_BLOCKSTATUS"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="BlockStatus"/>
+									<PropertyValue Property="ValueListProperty" String="ddtext"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="domvalue_l"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/OrderNumber">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;SALESORDERNUMBER}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@SalesDocument}"/>
 						<PropertyValue Property="CollectionPath" String="I_Order"/>
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
@@ -146,7 +296,7 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/Material">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;MATERIAL}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@Material}"/>
 						<PropertyValue Property="CollectionPath" String="I_Material"/>
 						<PropertyValue Property="SearchSupported" Bool="true"/>
 						<PropertyValue Property="Parameters">
@@ -166,7 +316,7 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/Plant">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;PLANT}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@Plant}"/>
 						<PropertyValue Property="CollectionPath" String="I_Plant"/>
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
@@ -183,70 +333,50 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<!--<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/ShipToRegion">-->
-			<!--	<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">-->
-			<!--		<Record>-->
-			<!--			<PropertyValue Property="Label" String="{@i18n&gt;REGION}"/>-->
-			<!--			<PropertyValue Property="CollectionPath" String="ShipToRegion"/>-->
-			<!--			<PropertyValue Property="SearchSupported" Bool="false"/>-->
-			<!--			<PropertyValue Property="Parameters">-->
-			<!--				<Collection>-->
-			<!--					<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">-->
-			<!--						<PropertyValue Property="LocalDataProperty" PropertyPath="ShipToRegion"/>-->
-			<!--						<PropertyValue Property="ValueListProperty" String="Region"/>-->
-			<!--					</Record>-->
-			<!--					<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">-->
-			<!--						<PropertyValue Property="ValueListProperty" String="RegionName"/>-->
-			<!--					</Record>-->
-			<!--				</Collection>-->
-			<!--			</PropertyValue>-->
-			<!--		</Record>-->
-			<!--	</Annotation>-->
-			<!--</Annotations>-->
-			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/SalesOffice">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/vkbur">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;SALESOFFICE}"/>
-						<PropertyValue Property="CollectionPath" String="I_SalesOfficeSalesGroup"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@SalesOffice}"/>
+						<PropertyValue Property="CollectionPath" String="ZC_SD_SALESOFFICE_VH"/>
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
-									<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOffice"/>
-									<PropertyValue Property="ValueListProperty" String="SalesGroup"/>
+									<PropertyValue Property="LocalDataProperty" PropertyPath="vkbur"/>
+									<PropertyValue Property="ValueListProperty" String="vkbur"/>
 								</Record>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="SalesOffice"/>
+									<PropertyValue Property="ValueListProperty" String="bezei"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
 				</Annotation>
 			</Annotations>
-			<!--<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/SalesOffice">-->
-			<!--	<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">-->
-			<!--		<Record>-->
-			<!--			<PropertyValue Property="Label" String="{@i18n&gt;SALESOFFICE}"/>-->
-			<!--			<PropertyValue Property="CollectionPath" String="I_SalesOffice"/>-->
-			<!--			<PropertyValue Property="SearchSupported" Bool="false"/>-->
-			<!--			<PropertyValue Property="Parameters">-->
-			<!--				<Collection>-->
-			<!--					<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">-->
-			<!--						<PropertyValue Property="LocalDataProperty" PropertyPath="SalesOffice"/>-->
-			<!--						<PropertyValue Property="ValueListProperty" String="SalesOffice"/>-->
-			<!--					</Record>-->
-			<!--					<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">-->
-			<!--						<PropertyValue Property="ValueListProperty" String="SalesOffice_Text"/>-->
-			<!--					</Record>-->
-			<!--				</Collection>-->
-			<!--			</PropertyValue>-->
-			<!--		</Record>-->
-			<!--	</Annotation>-->
-			<!--</Annotations>-->
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/vkgrp">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="Label" String="{@i18n&gt;@SalesGroup}"/>
+						<PropertyValue Property="CollectionPath" String="ZC_SD_SALESGROUP_VH"/>
+						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="vkgrp"/>
+									<PropertyValue Property="ValueListProperty" String="vkgrp"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="bezei"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/PONumber">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;PONUMBER}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@PONumber}"/>
 						<PropertyValue Property="CollectionPath" String="I_PurchaseOrderOfSIT"/>
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
@@ -266,7 +396,7 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/ShipToRegion">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;REGION}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@Region}"/>
 						<PropertyValue Property="CollectionPath" String="I_RegionText"/>
 						<PropertyValue Property="SearchSupported" Bool="false"/>
 						<PropertyValue Property="Parameters">
@@ -289,17 +419,17 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/CustomerReference">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMERREFERENCE}"/>
-						<PropertyValue Property="CollectionPath" String="I_Customer"/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@CustomerReference}"/>
+						<PropertyValue Property="CollectionPath" String="ZI_BSTNK_SH"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
 									<PropertyValue Property="LocalDataProperty" PropertyPath="CustomerReference"/>
-									<PropertyValue Property="ValueListProperty" String="Customer"/>
+									<PropertyValue Property="ValueListProperty" String="CustomerReference"/>
 								</Record>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="CustomerFullName"/>
+									<PropertyValue Property="ValueListProperty" String="OrderNumber"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -309,9 +439,9 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/SoldToNumber">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMERREFERENCE}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@SoldToNumber}"/>
 						<PropertyValue Property="CollectionPath" String="C_SoldToValueHelp"/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
@@ -329,9 +459,9 @@
 			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZSD_UNCONFIRMED_ORDERS_SRV.ZC_SD_UNCONFITEMType/ShipToNumber">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
-						<PropertyValue Property="Label" String="{@i18n&gt;CUSTOMERREFERENCE}"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;@ShipToNumber}"/>
 						<PropertyValue Property="CollectionPath" String="C_ShipToPartyValueHelp"/>
-						<PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
 								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">

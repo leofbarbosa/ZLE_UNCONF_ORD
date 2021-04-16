@@ -2,35 +2,30 @@
 	xmlns:sfi="sap.ui.comp.smartfield" xmlns:sfo="sap.ui.comp.smartform" xmlns:table="sap.ui.table" xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:uxap="sap.uxap" xmlns="sap.m"
 	controllerName="com.touchette.unconfirmedorders.ext.controller.SourcingLogic">
-	<smartTable:SmartTable id="idSourcLogicSmartTable" header="{i18n>@Result}" entitySet="SourcingSet" tableBindingPath="sourcing>Sourcings" editable="true"
+	<smartTable:SmartTable id="idSourcLogicSmartTable" header="{@i18n&gt;@Result}" entitySet="SourcingSet" tableBindingPath="sourcing>Sourcings" editable="true"
 		useTablePersonalisation="false" showTablePersonalisation="false" useVariantManagement="false" showRowCount="false" enableAutoBinding="true"
-		noData="{i18n>@NoItem}" class="sapUiResponsiveContentPadding" persistencyKey="PartTablePKey" useExportToExcel="false"
+		noData="{@i18n&gt;@NoItem}" class="sapUiResponsiveContentPadding" persistencyKey="PartTablePKey" useExportToExcel="false"
 		requestAtLeastFields="Plant,Material,TargetQty,ShuttleFlag,ShippingFees,DeliveryTimestamp,ServiceLevel">
-		<Table id="idSourcLogicTable" inset="true">
+		<Table id="idSourcLogicTable"> <!-- insert="true">-->
 			<headerToolbar>
 				<Toolbar>
-					<Button type="Default" icon="sap-icon://check-availability" text="Check Availability" press="onNavToCheckAvail">
+					<!-- <Button type="Default" icon="sap-icon://check-availability" text="{@i18n&gt;@CheckAvail}" press="onNavToCheckAvail">
 						<layoutData>
 							<FlexItemData growFactor="1"/>
 						</layoutData>
-					</Button>
-					<Button type="Default" icon="sap-icon://sales-order-item" text="Diff Price Release" press="onNavToDiffPriceRelease">
-						<layoutData>
-							<FlexItemData growFactor="1"/>
-						</layoutData>
-					</Button>
-					<Button type="Default" icon="sap-icon://sales-order" text="Change Order" press="onNavToDisplayOrder">
+					</Button> -->
+					<Button type="Default" icon="sap-icon://sales-order" text="{@i18n&gt;@ChangeOrder}" press="onNavToDisplayOrder">
 						<layoutData>
 							<FlexItemData growFactor="1"/>
 						</layoutData>
 					</Button>
 					<ToolbarSpacer/>
-					<Button type="Default" icon="sap-icon://refresh" text="Refresh" press="onSourcLogicRefresh">
+					<Button type="Default" icon="sap-icon://refresh" text="{@i18n&gt;@Refresh}" press="onSourcLogicRefresh">
 						<layoutData>
 							<FlexItemData growFactor="1"/>
 						</layoutData>
 					</Button>
-					<Button type="Default" icon="sap-icon://save" text="Save" press="onSourcLogicSave">
+					<Button type="Default" icon="sap-icon://save" text="{@i18n&gt;@Save}" press="onSourcLogicSave">
 						<layoutData>
 							<FlexItemData growFactor="1"/>
 						</layoutData>
@@ -39,25 +34,25 @@
 			</headerToolbar>
 			<columns>
 				<Column width="10%">
-					<Text text="Plant"/>
+					<Text text="{@i18n&gt;@Plant}"/>
 				</Column>
 				<Column minScreenWidth="Tablet" demandPopin="true" width="20%">
-					<Text text="Material"/>
+					<Text text="{@i18n&gt;@Material}"/>
 				</Column>
 				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End" width="15%">
-					<Text text="Confirmed Quantity"/>
+					<Text text="{@i18n&gt;@ConfirmedQty}"/>
 				</Column>
 				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center" width="10%">
-					<Text text="Shuttle?"/>
+					<Text text="{@i18n&gt;@Shuttle}"/>
 				</Column>
 				<Column hAlign="End" width="10%">
-					<Text text="Shipping Fees"/>
+					<Text text="{@i18n&gt;@Fees}"/>
 				</Column>
 				<Column hAlign="Center" width="15%">
-					<Text text="Delivery Date"/>
+					<Text text="{@i18n&gt;@DeliveryDate}"/>
 				</Column>
 				<Column hAlign="End" width="10%">
-					<Text text="Service Level"/>
+					<Text text="{@i18n&gt;@ServiceLevel}"/>
 				</Column>
 			</columns>
 			<items>

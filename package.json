@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"sapux": true,
-	"description": "Unconfirmed Orders",
+	"description": "Unconfirmed Orders - Protorype",
 	"keywords": [
 		"ui5",
 		"openui5",
@@ -16,15 +16,14 @@
 		"build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
 		"deploy": "fiori verify",
 		"deploy-config": "fiori add deploy-config",
-		"start-mock": "fiori run --open 'test/flpSandboxMockServer.html?sap-client=100#masterDetail-display'"
+		"start-mock": "fiori run --open test/flpSandboxMockServer.html?sap-client=100#masterDetail-display"
 	},
 	"devDependencies": {
-		"@ui5/cli": "^2.10.1",
-		"@ui5/fs": "^2.0.6",
-		"@ui5/logger": "^2.0.1",
+		"@sap/ux-specification": "1",
 		"@sap/ux-ui5-tooling": "1",
-		"rimraf": "3.0.2",
-		"@sap/ux-specification": "1"
+		"@ui5/cli": "^2.7.1",
+		"@ui5/fs": "2.0.1",
+		"@ui5/logger": "2.0.0"
 	},
 	"ui5": {
 		"dependencies": [

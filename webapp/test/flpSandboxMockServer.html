@@ -45,7 +45,7 @@
 			applications: {
 				"masterDetail-display": {
 					title: "Unconfirmed Orders",
-					description: "Unconfirmed Orders",
+					description: "Unconfirmed Orders - Protorype",
 					additionalInformation: "SAPUI5.Component=com.touchette.unconfirmedorders",
 					applicationType: "URL",
 					url: "../"
@@ -60,8 +60,6 @@
 	<script id="sap-ui-bootstrap"
 			src="/resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m, sap.ushell, sap.ui.core, sap.f, sap.ui.comp, sap.ui.table, sap.suite.ui.generic.template, sap.ui.generic.app"
-			data-sap-ui-async="true"
-			data-sap-ui-preload="async"
 			data-sap-ui-theme="sap_fiori_3"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-flexibilityServices='[{"applyConnector":"com/touchette/unconfirmedorders/test/changes_loader", "custom":true}]'
@@ -69,10 +67,17 @@
 			data-sap-ui-resourceroots='{"com.touchette.unconfirmedorders": "../"}'
 			data-sap-ui-frameOptions="allow"> // NON-SECURE setting for testing environment
 	</script>
-	<script src="../utils/locate-reuse-libs.js"
-			data-sap-ui-manifest-uri="../manifest.json"
-			data-sap-ui-componentName="com.touchette.unconfirmedorders"
-			data-sap-ui-use-mockserver="true">
+
+	<script type="text/javascript">
+		sap.ui.getCore().attachInit(function() {
+			sap.ui.require(["com/touchette/unconfirmedorders/localService/mockserver"],
+				function(server) {
+					// set up test service for local testing
+					server.init();
+					// initialize the ushell sandbox component
+					sap.ushell.Container.createRenderer().placeAt("content");
+			});
+		});
 	</script>
 	<!-- relevant for version < 1.78.0 only -->
 	<script src="changes_preview.js"></script>

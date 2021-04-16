@@ -5,10 +5,10 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "Touchette_DS1",
+        "name": "DS1",
         "entryPath": "/sap/opu/odata"
       },
-      "description": "Touchette_DS1"
+      "description": "DS1"
     },
     {
       "path": "/resources",
@@ -78,6 +78,15 @@
         "preferLocal": true
       },
       "description": "Subscribed Fiori LaunchPad"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "DS1",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "DS1"
     }
   ],
   "sendWelcomeFileRedirect": true

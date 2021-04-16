@@ -4,7 +4,7 @@ metadata:
 type: application
 framework:
   name: SAPUI5
-  version: 1.88.1
+  version: 1.87.1
   libraries:
     - name: sap.m
     - name: sap.ushell
@@ -20,11 +20,10 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false
         backend:
           - path: /sap
-            url: http://tch-s4hds1.grtouchette.com:8000
-            destination: http://tch-s4hds1.grtouchette.com:8000, client 100
+            url: https://tch-s4hds1.grtouchette.com:44300
+            destination: https://tch-s4hds1.grtouchette.com:44300, client 100
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

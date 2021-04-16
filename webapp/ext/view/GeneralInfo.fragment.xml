@@ -17,12 +17,33 @@
 		singleContainerFullSize="false" >
 		<f:content>
 			<core:Title text="" />
-			<Label text="{i18n>@SalesDocument}" />
+			<Label text="{@i18n>@SalesDocument}" />
 			<Text text="{OrderNumber}" />
-			<Label text="{i18n>@SalesOrderItem}" />
-			<Text text="{OrderItem}" />
-			<Label text="{i18n>@Name}" />
-			<Text text="{OrderType}" />
+			<Label text="{@i18n>@SoldTo}" />
+			<Text text="{SoldToNumber}" />
+			<Label text="{@i18n>@Name}" />
+			<Text text="{SoldToName}" />
+			<Label text="{@i18n>@DeliveryPriority}" />
+			<Text text="{DeliveryPriority}" />
+			<Label text="{@i18n>@SalesGroup}" />
+			<Text text="{SalesGroup}" />
+			<Label text="{@i18n>@ShipToNumber}" />
+			<Text text="{ShipToNumber}" />
+			<Label text="{@i18n>@ShipToName}" />
+			<Text text="{ShipToName}" />
+			<Label text="{@i18n>@InventoryVisibility}" />
+			<Text text="{InventoryVisibility}" />
+			<Label text="{@i18n>@CreationDT}" />
+			<Text text="{ 
+				path: 'CreationTimestamp', 
+				type: 'sap.ui.model.type.Date',
+				formatOptions: {
+					pattern: 'dd MMM yyyy HH:mm'
+				}
+			}" />
+
+			<!-- <Label text="{i18n>@Name}" />
+			<Text text="{ShipToName}" />
 			<Label text="{i18n>@PONumber}" />
 			<Text text="{PONumber}" />
 			<Label text="{i18n>@BlockStatus}" />
@@ -39,22 +60,30 @@
 			<Text text="{SoldToNumber}" />
 			<Label text="{i18n>@ShipTo}" />
 			<Text text="{ShipToNumber}" />
-			<Label text="{i18n>@OrderQty}" />
-			<Text text="{OrderQty}" />
 			<Label text="{i18n>@SalesOffice}" />
-			<Text text="{SalesOffice}" />
-			<Label text="{i18n>@ConfirmedQty}" />
-			<Text text="{ConfirmedQty}" />
+			<Text text="{SalesOffice}" />-->
+
 			<core:Title text="" />
-			<Label text="{i18n>@Region}" />
-			<Text text="{ShipToRegion}" />
-			<Label text="{i18n>@UoM}" />
-			<Text text="{OrderUoM}" />
-			<Label text="{i18n>@Material}" />
+			<Label text="{@i18n>@SalesOrderItem}" />
+			<Text text="{OrderItem}" />
+			<Label text="{@i18n>@Material}" />
 			<Text text="{Material}" />
-			<Label text="{i18n>@Plant}" />
+			<Label text="{@i18n>@OrderQty}" />
+			<Text text="{OrderQty}" />
+			<Label text="{@i18n>@ConfirmedQty}" />
+			<Text text="{ConfirmedQty}" />
+			<Label text="{@i18n>@Plant}" />
 			<Text text="{Plant}" />
-			<Label text="{i18n>@InventoryVisibility}" />
+			<Label text="{@i18n>@StorageLocation}" />
+			<Text text="{StorageLocation}" />
+			<Label text="{@i18n>@ShippingConditions}" />
+			<Text text="{ShipCond}" />
+			<Label text="{@i18n>@EmployeeResponsible}" />
+			<Text text="{Employee}" />
+			<Label text="{@i18n>@Comments}" />
+			<Text text="{Comments}" />
+
+			<!-- <Label text="{i18n>@InventoryVisibility}" />
 			<Text text="{InventoryVisibility}" />
 			<Label text="{i18n>@DeliveryDateTime}" />
 			<Text text="{ 
@@ -64,16 +93,17 @@
 					pattern: 'dd MMM yyyy HH:mm'
 				}
 			}" />
-			<Label text="{i18n>@StorageLocation}" />
-			<Text text="{StorageLocation}" />
-			<Label text="{i18n>@DeliveryPriority}" />
-			<Text text="{DeliveryPriority}" />
+			<Label text="{i18n>@Region}" />
+			<Text text="{ShipToRegion}" />
+			<Label text="{i18n>@UoM}" />
+			<Text text="{OrderUoM}" />
 			<Label text="{i18n>@Route}" />
 			<Text text="{Route}" />
 			<Label text="{i18n>@AFSQty}" />
 			<Text text="{AFSQuantity}" />
 			<Label text="{i18n>@ADDQty}" />
-			<Text text="{ADDQuantity}" />
+			<Text text="{ADDQuantity}" /> -->
+
 		</f:content>
 	</f:SimpleForm>
 </core:FragmentDefinition>

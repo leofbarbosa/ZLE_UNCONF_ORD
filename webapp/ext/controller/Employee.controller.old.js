@@ -16,9 +16,8 @@ sap.ui.define([
 	'sap/ui/core/Fragment',
 	'sap/ui/model/FilterOperator',
 	'sap/ui/model/Model',
-	"sap/m/MessageBox",
-	"sap/ui/model/resource/ResourceModel"
-], function (Controller, IconPool, JSONModel, Link, MessageItem, MessageView, ValueState, Button, ButtonType, Dialog, DialogType, Bar, Text, Fragment, Filter, FilterOperator, Model, MessageBox, ResourceModel) {
+	"sap/m/MessageBox"
+], function (Controller, IconPool, JSONModel, Link, MessageItem, MessageView, ValueState, Button, ButtonType, Dialog, DialogType, Bar, Text, Fragment, Filter, FilterOperator, Model, MessageBox) {
 	"use strict";
 
 	sap.ui.controller("com.touchette.unconfirmedorders.ext.controller.ListReportExt", {
@@ -37,19 +36,7 @@ sap.ui.define([
 			var oTable = this.getOwnerComponent().getModel();
 			var oSel = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM--responsiveTable").getSelectedItems();
 			if (oSel.length == 0) {
-				// set i18n model on view
-				var i18nModel = new ResourceModel({
-					bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-				});
-				sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-				//this.getView().setModel(i18nModel, "i18n");
-				// read msg from i18n model
-				var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-				var sMsg = oBundle.getText("@SelectLine");
-				// show message
-
-				sap.m.MessageBox.error(sMsg);
-				//sap.m.MessageBox.error("Select a line");
+				sap.m.MessageBox.error("Select a line");
 			} else {
 				var len = oSel[0].mAggregations.cells.length;
 				for (let i = 0; i < len; i++) {
@@ -84,18 +71,7 @@ sap.ui.define([
 					error: function (oError) {}
 				});
 				if (vBlock != "S6") {
-					// set i18n model on view
-					var i18nModel = new ResourceModel({
-						bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-					});
-					this.getView().setModel(i18nModel, "i18n");
-					// read msg from i18n model
-					var oBundle = this.getView().getModel("i18n").getResourceBundle();
-					var sMsg = oBundle.getText("@MsgReleaseSuccess");
-					// show message
-
-					sap.m.MessageBox.error(sMsg);
-					//sap.m.MessageBox.error("Order not blocked by diff price");
+					sap.m.MessageBox.error("Order not blocked by diff price");
 				} else {
 					var dialog = new sap.m.Dialog('dialog', {
 						title: 'Confirm Diff Price Release',
@@ -131,37 +107,11 @@ sap.ui.define([
 								});
 
 								function fSucess(oData, oResponse) {
-									// set i18n model on view
-									var i18nModel = new ResourceModel({
-										bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-									});
-									sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-									//this.getView().setModel(i18nModel, "i18n");
-									// read msg from i18n model
-									var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-									var sMsg = oBundle.getText("@MsgReleaseSuccess1");
-									var sMsg1 = oBundle.getText("@MsgReleaseSuccess2");
-									var sMsg2 = oBundle.getText("@MsgReleaseSuccess3");
-									// show message
-
-									sap.m.MessageBox.success(sMsg + ' ' + vVbeln + ' ' + sMsg1 + ' ' + vPosnr + ' ' + sMsg2);
-									//sap.m.MessageBox.success("Order: " + vVbeln + " / Item: " + vPosnr + " Released");
+									sap.m.MessageBox.success("Order: " + vVbeln + " / Item: " + vPosnr + " Released");
 								};
 
 								function fError(oError) {
-									// set i18n model on view
-									var i18nModel = new ResourceModel({
-										bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-									});
-									sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-									// read msg from i18n model
-									var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-									var sMsg = oBundle.getText("@MsgReleaseError1");
-									var sMsg1 = oBundle.getText("@MsgReleaseError2");
-									// show message
-
-									sap.m.MessageBox.error(sMsg + ' ' + vVbeln + ' ' + sMsg1 + ' ' + vPosnr);
-									//sap.m.MessageBox.error("Error releasing order: " + vVbeln + " / Item: " + vPosnr);
+									sap.m.MessageBox.error("Error releasing order: " + vVbeln + " / Item: " + vPosnr);
 								};
 								oModel.refresh();
 								oTable.refresh();
@@ -172,19 +122,7 @@ sap.ui.define([
 						endButton: new sap.m.Button({
 							text: "Cancel",
 							press: function (oEvent2) {
-								// set i18n model on view
-								var i18nModel = new ResourceModel({
-									bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-								});
-								sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-								//this.getView().setModel(i18nModel, "i18n");
-								// read msg from i18n model
-								var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-								var sMsg = oBundle.getText("@ActionCancelled");
-								// show message
-
-								sap.m.MessageBox.error(sMsg);
-								//sap.m.MessageToast.show("action cancelled");
+								sap.m.MessageToast.show("action cancelled");
 								dialog.close();
 							}
 						}),
@@ -205,19 +143,7 @@ sap.ui.define([
 			var oTable = this.getOwnerComponent().getModel();
 			var oSel = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM--responsiveTable").getSelectedItems();
 			if (oSel.length == 0) {
-				// set i18n model on view
-				var i18nModel = new ResourceModel({
-					bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-				});
-				sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-				//this.getView().setModel(i18nModel, "i18n");
-				// read msg from i18n model
-				var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-				var sMsg = oBundle.getText("@SelectLine");
-				// show message
-
-				sap.m.MessageBox.error(sMsg);
-				//sap.m.MessageBox.error("Select a line");
+				sap.m.MessageBox.error("Select a line");
 			} else {
 				var oView = this.getView();
 				var oDialog = oView.byId("employeeDialog");
@@ -327,29 +253,18 @@ sap.ui.define([
 		},
 
 		onCloseDialog: function () {
-			// set i18n model on view
-			var i18nModel = new ResourceModel({
-				bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-			});
-			sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-			// read msg from i18n model
-			var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-			var sMsg = oBundle.getText("@ActionCancelled");
-			// show message
-
-			sap.m.MessageBox.error(sMsg);
-			//sap.m.MessageToast.show("action cancelled");
+			sap.m.MessageToast.show("action cancelled");
 			this.byId("employeeDialog").close();
 		},
-		// onShowHello: function () {
-		// 	// read msg from i18n model
-		// 	var oBundle = this.getView().getModel("i18n").getResourceBundle();
-		// 	var sRecipient = this.getView().getModel().getProperty("/recipient/name");
-		// 	var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+		onShowHello: function () {
+			// read msg from i18n model
+			var oBundle = this.getView().getModel("i18n").getResourceBundle();
+			var sRecipient = this.getView().getModel().getProperty("/recipient/name");
+			var sMsg = oBundle.getText("helloMsg", [sRecipient]);
 
-		// 	// show message
-		// 	MessageToast.show(sMsg);
-		// },
+			// show message
+			MessageToast.show(sMsg);
+		},
 
 		onOpenDialog: function () {
 			var oView = this.getView();
@@ -408,21 +323,7 @@ sap.ui.define([
 			});
 
 			function fSucess(oData1, oResponse) {
-
-				// set i18n model on view
-				var i18nModel = new ResourceModel({
-					bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-				});
-				sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-				//this.getView().setModel(i18nModel, "i18n");
-				// read msg from i18n model
-				var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-				var sMsg = oBundle.getText("@MsgCommentSuccess1");
-				var sMsg1 = oBundle.getText("@MsgCommentSuccess2");
-				// show message
-
-				sap.m.MessageBox.success(sMsg + ' ' + vVbeln + ' ' + sMsg1, {
-					//sap.m.MessageBox.success("Order: " + vVbeln + " changed", {
+				sap.m.MessageBox.success("Order: " + vVbeln + " changed", {
 					initialFocus: sap.m.MessageBox.Action.OK,
 					onClose: function (sButton) {
 						if (sButton === sap.m.MessageBox.Action.OK) {
@@ -435,104 +336,120 @@ sap.ui.define([
 
 			function fError(oError) {
 				//sap.m.MessageBox.error(JSON.parse(oError.responseText).error.message.value);
-				// var xmlRead = oError.response.body;
-				// var parser = new DOMParser();
-				// var xmldoc = parser.parseFromString(xmlRead, "text/xml");
-				// var messages = xmldoc.getElementsByTagName("message");
-				// var types = xmldoc.getElementsByTagName("severity"); // parei aqui
-				// var len = messages.length;
-				// var text = new Array();
+				var xmlRead = oError.response.body;
+				var parser = new DOMParser();
+				var xmldoc = parser.parseFromString(xmlRead, "text/xml");
+				var messages = xmldoc.getElementsByTagName("message");
+				var types = xmldoc.getElementsByTagName("severity"); // parei aqui
+				var len = messages.length;
+				var text = new Array();
 
-				// var oMessageTemplate = new MessageItem({
-				// 	type: '{type}',
-				// 	title: '{title}',
-				// 	description: '{description}',
-				// 	subtitle: '{subtitle}',
-				// 	counter: '{counter}'
-				// });
-				// var msgType;
-				// var msgMsg;
-				// var aMessages = [];
-				// for (let i = 1; i < len; i++) {
-				// 	msgType = types[i - 1].textContent;
-				// 	msgMsg = messages[i].textContent
-				// 	var oMessage = {
-				// 		type: msgType,
-				// 		description: msgMsg,
-				// 		counter: i,
-				// 		title: '',
-				// 		subtitle: ''
-				// 	};
-				// 	aMessages.push(oMessage);
-				// };
+				var oMessageTemplate = new MessageItem({
+					type: '{type}',
+					title: '{title}',
+					description: '{description}',
+					subtitle: '{subtitle}',
+					counter: '{counter}',
+					markupDescription: '{markupDescription}'
+				});
+				var msgType;
+				var msgMsg;
+				var aMessages = [];
+				for (let i = 1; i < len; i++) {
+					msgType = types[i - 1].textContent;
+					msgMsg = messages[i].textContent
+					var oMessage = {
+						type: msgType,
+						description: msgMsg
+					};
+					aMessages.push(oMessage);
+				};
 
 
-				// var oModel = new sap.ui.model.json.JSONModel(); // new JSONModel();
-				// oModel.setData(aMessages);
-				// var that = this;
+				var oModel = new sap.ui.model.json.JSONModel(); // new JSONModel();
+				oModel.setData(aMessages);
+				var that = this;
+				var oBackButton = new sap.m.Button({
+					icon: sap.ui.core.IconPool.getIconURI("navback"),
+					visible: false,
+					press: function () {
+						that.oMessageView.navigateBack();
+						this.setVisible(false);
+					}
+				});
 
-				// var oMessageView = new sap.m.MessageView({
-				// 	showDetailsPageHeader: false,
-				// 	itemSelect: function () {
-				// 		oBackButton.setVisible(true);
-				// 	},
-				// 	items: {
-				// 		path: "/",
-				// 		template: oMessageTemplate
-				// 	}
-				// });
+				var oMessageView = new sap.m.MessageView({
+					showDetailsPageHeader: false,
+					itemSelect: function () {
+						oBackButton.setVisible(true);
+					},
+					items: {
+						path: "/",
+						template: oMessageTemplate
+					}
+				});
 
-				// var oBackButton = new sap.m.Button({
-				// 	icon: sap.ui.core.IconPool.getIconURI("nav-back"),
-				// 	visible: false,
-				// 	press: function () {
-				// 		that.oMessageView.navigateBack();
-				// 		this.setVisible(false);
-				// 	}
-				// });
+				oMessageView.setModel(oModel, oMessageTemplate);
 
-				// oMessageView.setModel(oModel, oMessageTemplate);
+				var oDialog1 = new sap.m.Dialog({
+					resizable: true,
+					content: oMessageView, //oModel, //oMessageView.oModels["Element sap.m.Link#__link2"].oData,
+					state: 'Error',
+					beginButton: new sap.m.Button({
+						press: function () {
+							this.getParent().close();
+						},
+						text: "Close"
+					}),
+					customHeader: new sap.m.Bar({
+						contentMiddle: [
+							new Text({
+								text: "Error"
+							})
+						],
+						contentLeft: [oBackButton]
+					}),
+					contentHeight: "300px",
+					contentWidth: "500px",
+					verticalScrolling: false
+				});
+				oMessageView.navigateBack();
+				oDialog1.open();
 
-				// var oDialog1 = new sap.m.Dialog({
-				// 	resizable: true,
-				// 	content: oMessageView, //oModel, //oMessageView.oModels["Element sap.m.Link#__link2"].oData,
-				// 	state: 'Error',
-				// 	beginButton: new sap.m.Button({
+				// 	var oCloseButton =  new Button({
+				// 		text: "Close",
 				// 		press: function () {
-				// 			this.getParent().close();
-				// 		},
-				// 		text: "Close"
+				// 			that._oPopover.close();
+				// 		}
 				// 	}),
-				// 	customHeader: new sap.m.Bar({
+				// 	oPopoverFooter = new sap.m.Bar({
+				// 		contentRight: oCloseButton
+				// 	}),
+				// 	oPopoverBar = new sap.m.Bar({
+				// 		contentLeft: [oBackButton],
 				// 		contentMiddle: [
 				// 			new Text({
-				// 				text: "Error"
+				// 				text: "Messages"
 				// 			})
-				// 		],
-				// 		contentLeft: [oBackButton]
-				// 	}),
-				// 	contentHeight: "50%",
-				// 	contentWidth: "50%",
-				// 	verticalScrolling: false
+				// 		]
+				// 	});
+
+				// var _oPopover = new sap.m.Popover({
+				// 	customHeader: oPopoverBar,
+				// 	contentWidth: "440px",
+				// 	contentHeight: "440px",
+				// 	verticalScrolling: false,
+				// 	modal: true,
+				// 	content: [oMessageView],
+				// 	footer: oPopoverFooter
 				// });
-				//oMessageView.navigateBack();
-				//oDialog1.open();
 
-				//sap.m.MessageBox.error(aMessages);
-				// set i18n model on view
-				var i18nModel = new ResourceModel({
-					bundleName: "com.touchette.unconfirmedorders.i18n.i18n"
-				});
-				sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").setModel(i18nModel, "i18n");
-				//this.getView().setModel(i18nModel, "i18n");
-				// read msg from i18n model
-				var oBundle = sap.ui.getCore().byId("com.touchette.unconfirmedorders::sap.suite.ui.generic.template.ListReport.view.ListReport::ZC_SD_UNCONFITEM").getModel("i18n").getResourceBundle();
-				var sMsg = oBundle.getText("@MsgCommentError");
-				
-				// show message
+				// oMessageView.navigateBack();
+				// _oPopover.openBy(oEvent.getSource());
 
-				sap.m.MessageBox.error(sMsg + ' ' + vVbeln);
-					//sap.m.MessageBox.error("Error changing order: " + vVbeln);
+
+				//sap.m.MessageBox.error(text);
+				//sap.m.MessageBox.error("Error changing order: " + vVbeln);
 				oModel1.refresh();
 				oTable.refresh();
 			};
